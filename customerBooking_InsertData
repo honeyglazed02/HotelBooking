@@ -1,0 +1,178 @@
+INSERT INTO RoomTypes
+(RoomTypeName, Description, MaxCapacity, PricePerNight)
+VALUES
+('Standard','Comfortable room with basic amenities, ideal for solo travelers or business guests.',2,1500.00),
+('Superior','Spacious room offering enhanced comfort and modern amenities for couples or leisure travelers.',2,2300.00),
+('Deluxe','Premium room with upgraded furnishings and additional conveniences for a relaxing stay.',4,3200.00),
+('Family','Large room designed to comfortably accommodate families or groups with multiple beds and extra space.',6,4500.00),
+('Suite','Luxurious suite featuring separate living and sleeping areas with premium amenities and exclusive services.',2,7000.00);
+GO
+
+INSERT INTO Amenities (AmenityName)
+VALUES
+('Single Bed'),
+('Queen Bed'),
+('King Bed'),
+('2 Double Beds'),
+('2 Queen Beds'),
+('Separate Living Room'),
+('Air Conditioning'),
+('Free Wi-Fi'),
+('Free High-Speed Wi-Fi'),
+('32-inch Smart TV'),
+('43-inch Smart TV'),
+('50-inch Smart TV'),
+('55-inch Smart TV'),
+('65-inch Smart TV'),
+('Mini Refrigerator'),
+('Mini Bar'),
+('Microwave'),
+('Electric Kettle'),
+('Coffee Maker'),
+('Coffee Machine'),
+('Coffee & Tea Set'),
+('Dining Table'),
+('Dining Area'),
+('Work Desk'),
+('Work Desk & Chair'),
+('Sofa'),
+('Sofa Seating Area'),
+('Closet with Hangers'),
+('Safety Deposit Box'),
+('Private Bathroom'),
+('Hot & Cold Shower'),
+('Bathtub & Rain Shower'),
+('Hair Dryer'),
+('Iron & Ironing Board'),
+('Premium Toiletries'),
+('Towels & Toiletries'),
+('Extra Pillows & Blankets'),
+('Bathrobes & Slippers'),
+('Complimentary Bottled Water'),
+('Complimentary Breakfast for 2'),
+('Complimentary Breakfast for 4'),
+('Welcome Fruit Basket');
+GO
+
+/* Standard */
+INSERT INTO RoomTypeAmenities VALUES
+(1,1),(1,7),(1,8),(1,10),(1,15),(1,17),(1,18),(1,25),(1,30),(1,31),(1,36),(1,39);
+
+/* Superior */
+INSERT INTO RoomTypeAmenities VALUES
+(2,2),(2,7),(2,8),(2,11),(2,15),(2,17),(2,18),(2,21),(2,24),(2,28),(2,30),(2,31),(2,33),(2,39);
+
+/* Deluxe */
+INSERT INTO RoomTypeAmenities VALUES
+(3,3),(3,4),(3,7),(3,8),(3,12),(3,15),(3,17),(3,18),(3,19),(3,27),(3,24),(3,29),(3,33),(3,34),(3,35),(3,40);
+
+/* Family */
+INSERT INTO RoomTypeAmenities VALUES
+(4,5),(4,7),(4,8),(4,13),(4,15),(4,17),(4,18),(4,22),(4,26),(4,37),(4,30),(4,33),(4,41);
+
+/* Suite */
+INSERT INTO RoomTypeAmenities VALUES
+(5,3),(5,6),(5,9),(5,12),(5,14),(5,16),(5,17),(5,20),(5,23),(5,24),(5,29),(5,32),(5,33),(5,38),(5,40),(5,42);
+GO
+
+INSERT INTO Rooms
+(RoomNum, RoomTypeID, FloorNum, Status)
+VALUES
+
+
+-- STANDARD (10 Rooms)
+('101',1,1,'Available'),
+('102',1,1,'Available'),
+('103',1,1,'Booked'),
+('104',1,1,'Available'),
+('105',1,1,'Maintenance'),
+('106',1,1,'Available'),
+('107',1,1,'Booked'),
+('108',1,1,'Available'),
+('109',1,1,'Available'),
+('110',1,1,'Available'),
+
+
+-- SUPERIOR (10 Rooms)
+('201',2,2,'Available'),
+('202',2,2,'Booked'),
+('203',2,2,'Available'),
+('204',2,2,'Available'),
+('205',2,2,'Maintenance'),
+('206',2,2,'Booked'),
+('207',2,2,'Available'),
+('208',2,2,'Available'),
+('209',2,2,'Available'),
+('210',2,2,'Booked'),
+
+-- DELUXE (8 Rooms)
+('301',3,3,'Available'),
+('302',3,3,'Booked'),
+('303',3,3,'Available'),
+('304',3,3,'Maintenance'),
+('305',3,3,'Available'),
+('306',3,3,'Booked'),
+('307',3,3,'Available'),
+('308',3,3,'Available'),
+
+-- FAMILY (6 Rooms)
+('401',4,4,'Available'),
+('402',4,4,'Booked'),
+('403',4,4,'Available'),
+('404',4,4,'Available'),
+('405',4,4,'Maintenance'),
+('406',4,4,'Available'),
+
+-- SUITE (6 Rooms)
+('501',5,5,'Available'),
+('502',5,5,'Booked'),
+('503',5,5,'Maintenance'),
+('504',5,5,'Available'),
+('505',5,5,'Available'),
+('506',5,5,'Booked');
+GO
+
+INSERT INTO Customers
+(FirstName,LastName,Email,PhoneNum,Password)
+VALUES
+
+('Juan','Dela Cruz','juan@email.com','09171234567','password123'),
+
+('Maria','Santos','maria@email.com','09181234567','password123'),
+
+('Jose','Reyes','jose@email.com','09191234567','password123'),
+
+('Angela','Garcia','angela@email.com','09201234567','password123'),
+
+('Mark','Lim','mark@email.com','09211234567','password123');
+GO
+
+INSERT INTO Bookings
+(CustomerID,RoomID,CheckIn,CheckOut,Nights,NumberOfGuests,TotalCost,BookingStatus)
+VALUES
+
+(1,3,'2026-08-01','2026-08-03',2,1,3000,'Confirmed'),
+
+(2,6,'2026-08-05','2026-08-08',3,2,6900,'Confirmed'),
+
+(3,10,'2026-08-10','2026-08-13',3,4,9600,'Pending'),
+
+(4,14,'2026-08-15','2026-08-17',2,5,9000,'Confirmed'),
+
+(5,18,'2026-08-20','2026-08-22',2,2,14000,'Cancelled');
+GO
+
+INSERT INTO Payments
+(BookingID,PaymentMethod,ReferenceNumber,Amount,PaymentStatus)
+VALUES
+
+(1,'GCash','GC100001',3000,'Paid'),
+
+(2,'Credit Card','CC100002',6900,'Paid'),
+
+(3,'Maya','MY100003',9600,'Pending'),
+
+(4,'Cash',NULL,9000,'Paid'),
+
+(5,'Debit Card','DB100005',14000,'Refunded');
+GO
