@@ -1,0 +1,35 @@
+# Visual Studio
+.vs/
+**/.vs/
+
+# Build output
+bin/
+obj/
+**/bin/
+**/obj/
+
+# Logs
+logs/
+**/logs/
+
+# User files
+*.user
+*.suo
+*.slnLaunch.user
+
+# IDEs
+.vscode/
+.idea/
+
+# Environment
+.env
+.env.*
+
+# ASP.NET
+appsettings.Development.json
+
+# Visual Studio / MSBuild temporary files
+*.tmp
+*.bak
+*.Backup.tmp
+*.cache
