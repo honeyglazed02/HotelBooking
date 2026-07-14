@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="HotelBookingApp.LoginPage"
+    xmlns:viewmodels="clr-namespace:HotelBookingApp.ViewModels"
+    Title="Login"
+    BackgroundColor="#F5F7FA">
+
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30"
+            VerticalOptions="Center"
+            Spacing="20">
+
+            <Label
+                Text="Hotel Booking System"
+                FontSize="30"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                TextColor="#0F4C81"/>
+
+            <Label
+                Text="Sign in to your account"
+                HorizontalOptions="Center"
+                FontSize="16"
+                TextColor="Gray"/>
+
+            <!-- Email bound to ViewModel -->
+            <Entry
+                Text="{Binding Email}"
+                Placeholder="Email Address"
+                Keyboard="Email"
+                HeightRequest="50"/>
+
+            <!-- Password bound to ViewModel -->
+            <Entry
+                Text="{Binding Password}"
+                Placeholder="Password"
+                IsPassword="True"
+                HeightRequest="50"/>
+
+            <!-- Login button bound to LoginCommand -->
+            <Button
+                Text="LOGIN"
+                Command="{Binding LoginCommand}"
+                BackgroundColor="#0F4C81"
+                TextColor="White"
+                HeightRequest="50"
+                CornerRadius="10"/>
+
+            <Label
+                Text="Dont have an account? create"
+                HorizontalOptions="Center"
+                TextColor="#0F4C81"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
